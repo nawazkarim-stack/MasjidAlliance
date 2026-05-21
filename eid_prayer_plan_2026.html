@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Eid Prayer 2026 – Volunteer & Coordination Plan</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #0F6E56;
+    --green-light: #E1F5EE;
+    --green-mid: #1D9E75;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --red: #A32D2D;
+    --red-light: #FCEBEB;
+    --blue: #185FA5;
+    --blue-light: #E6F1FB;
+    --gray: #5F5E5A;
+    --gray-light: #F1EFE8;
+    --text: #2C2C2A;
+    --text-muted: #888780;
+    --border: rgba(44,44,42,0.12);
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  .hero { background: var(--green); color: #fff; padding: 3rem 2rem 2.5rem; text-align: center; }
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(28px, 5vw, 44px); font-weight: 400; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .hero-sub { font-size: 15px; opacity: 0.85; margin-bottom: 20px; }
+  .hero-venue { display: inline-block; background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 8px; padding: 10px 18px; font-size: 14px; line-height: 1.5; }
+  .hero-venue strong { display: block; font-size: 15px; font-weight: 500; }
+  .map-links { margin-top: 10px; display: flex; gap: 12px; justify-content: center; }
+  .map-links a { color: rgba(255,255,255,0.9); font-size: 13px; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.4); padding-bottom: 1px; }
+  .map-links a:hover { color: #fff; border-color: #fff; }
+
+  .container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+  .section { margin-bottom: 2.5rem; }
+  .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+  .card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+
+  .schedule-grid { display: grid; grid-template-columns: 1fr 1fr; }
+  .schedule-row { display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px; border-bottom: 0.5px solid var(--border); }
+  .schedule-row:last-child { border-bottom: none; }
+  .schedule-row.highlight { background: var(--green-light); }
+  .sched-time { font-size: 13px; font-weight: 500; color: var(--green); min-width: 60px; padding-top: 1px; }
+  .sched-label { font-size: 14px; color: var(--text); }
+  .sched-note { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+
+  .prep-row { display: flex; align-items: flex-start; gap: 14px; padding: 13px 18px; border-bottom: 0.5px solid var(--border); font-size: 14px; }
+  .prep-row:last-child { border-bottom: none; }
+  .prep-tag { font-size: 11px; font-weight: 500; background: var(--gray-light); color: var(--gray); padding: 3px 8px; border-radius: 5px; white-space: nowrap; margin-top: 1px; min-width: 70px; text-align: center; }
+  .prep-tag.venue { background: var(--green-light); color: var(--green); }
+  .prep-tag.purchase { background: var(--amber-light); color: var(--amber); }
+
+  .supply-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(155px,1fr)); gap: 8px; padding: 16px; }
+  .supply-item { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 8px 10px; background: var(--gray-light); border-radius: 8px; color: var(--text); }
+  .supply-dot { width: 6px; height: 6px; background: var(--green-mid); border-radius: 50%; flex-shrink: 0; }
+
+  .team-row { display: flex; align-items: flex-start; gap: 12px; padding: 13px 18px; border-bottom: 0.5px solid var(--border); }
+  .team-row:last-child { border-bottom: none; }
+  .team-num { font-size: 12px; font-weight: 500; color: var(--text-muted); min-width: 20px; padding-top: 2px; }
+  .team-body { flex: 1; }
+  .team-name { font-size: 14px; font-weight: 500; color: var(--text); display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .team-meta { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+  .sub-bullets { padding-left: 16px; margin-top: 4px; font-size: 13px; color: var(--text-muted); line-height: 1.8; }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 5px; font-weight: 400; white-space: nowrap; }
+  .badge-all { background: var(--blue-light); color: var(--blue); }
+  .badge-ara { background: var(--green-light); color: var(--green); }
+  .badge-isgm { background: var(--amber-light); color: var(--amber); }
+  .badge-ext { background: var(--gray-light); color: var(--gray); }
+
+  .followup-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 18px; border-bottom: 0.5px solid var(--border); }
+  .followup-row:last-child { border-bottom: none; }
+  .fu-owner { font-size: 12px; font-weight: 500; color: var(--text-muted); min-width: 90px; padding-top: 2px; }
+  .fu-text { flex: 1; font-size: 14px; }
+  .fu-badge { font-size: 11px; padding: 2px 8px; border-radius: 5px; white-space: nowrap; margin-left: 6px; }
+  .status-pending { background: var(--amber-light); color: var(--amber); }
+  .status-needed { background: var(--red-light); color: var(--red); }
+  .status-progress { background: var(--blue-light); color: var(--blue); }
+
+  .alert { border-radius: var(--radius); padding: 13px 16px; font-size: 13px; margin-top: 10px; display: flex; align-items: flex-start; gap: 10px; }
+  .alert-warning { background: var(--amber-light); color: var(--amber); border: 0.5px solid rgba(186,117,23,0.2); }
+  .alert-danger { background: var(--red-light); color: var(--red); border: 0.5px solid rgba(163,45,45,0.2); }
+  .alert-info { background: var(--blue-light); color: var(--blue); border: 0.5px solid rgba(24,95,165,0.2); }
+  .alert-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+
+  .masajid-row { display: flex; flex-wrap: wrap; gap: 8px; padding: 14px 18px; }
+  .masjid-pill { font-size: 13px; font-weight: 500; padding: 6px 14px; border-radius: 20px; background: var(--green-light); color: var(--green); border: 0.5px solid rgba(15,110,86,0.2); }
+
+  .whatsapp-box { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
+  .wa-pre { font-family: 'DM Sans', sans-serif; font-size: 13px; line-height: 1.7; color: var(--text); white-space: pre-wrap; word-break: break-word; }
+  .copy-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 9px 18px; font-size: 13px; font-family: 'DM Sans', sans-serif; font-weight: 500; cursor: pointer; border-radius: 8px; border: 0.5px solid var(--border); background: var(--gray-light); color: var(--text); transition: background 0.15s; }
+  .copy-btn:hover { background: #E5E3DC; }
+
+  .divider { height: 0.5px; background: var(--border); margin: 2rem 0; }
+
+  @media (max-width: 540px) {
+    .schedule-grid { grid-template-columns: 1fr; }
+    .supply-grid { grid-template-columns: 1fr 1fr; }
+    .fu-owner { min-width: 70px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-title">🕌 United Eid Prayer 2026</div>
+  <div class="hero-sub">Wednesday, May 27, 2026 &nbsp;·&nbsp; Volunteer & Coordination Plan</div>
+  <div class="hero-venue">
+    <strong>Best Western Royal Plaza Trade Center</strong>
+    181 Royal Plaza Dr West, Marlborough, MA 01752
+    <div class="map-links">
+      <a href="https://maps.apple/p/ag.66YpnZUk7d9" target="_blank">&#x1F34E; Apple Maps</a>
+      <a href="https://maps.app.goo.gl/WMweW4RGpz1bCS4SA?g_st=ac" target="_blank">&#x1F5FA; Google Maps</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Participating Masajid -->
+  <div class="section">
+    <div class="section-label">Participating masajid</div>
+    <div class="card">
+      <div class="masajid-row">
+        <span class="masjid-pill">ARA</span>
+        <span class="masjid-pill">BIS</span>
+        <span class="masjid-pill">ISGM</span>
+        <span class="masjid-pill">ISF</span>
+        <span class="masjid-pill">WIS</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Schedule -->
+  <div class="section">
+    <div class="section-label">Eid salah schedule</div>
+    <div class="card">
+      <div class="schedule-row highlight">
+        <div class="sched-time">7:00 AM</div><div class="sched-label">Takbirat</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-time">7:30 AM</div><div class="sched-label">First Eid Salah</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-time">7:45 AM</div>
+        <div>
+          <div class="sched-label">Bounce house opens</div>
+          <div class="sched-note">After Eid Salah only</div>
+        </div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-time">8:30 AM</div>
+        <div>
+          <div class="sched-label">Bounce house closes</div>
+          <div class="sched-note">Parking changeover for second group</div>
+        </div>
+      </div>
+      <div class="schedule-row highlight">
+        <div class="sched-time">9:00 AM</div>
+        <div class="sched-label">Takbirat</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-time">9:30 AM</div><div class="sched-label">Second Eid Salah</div>
+      </div>
+      <div class="schedule-row">
+        <div class="sched-time">9:45 AM</div>
+        <div>
+          <div class="sched-label">Bounce house opens</div>
+          <div class="sched-note">After Eid Salah only</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Purchase & Prep -->
+  <div class="section">
+    <div class="section-label">Mon–Tue — Purchase & prep (before venue)</div>
+    <div class="card">
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag purchase" style="margin-top:2px;">Purchase</span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Water bottles</li>
+          <li>Snacks</li>
+          <li>Plastic bags</li>
+          <li>Brown paper / handled takeout bags</li>
+          <li>Tarps & floor plastic</li>
+          <li>Tape rolls</li>
+          <li>Storage containers for food bags</li>
+          <li>Volunteer vests or tags</li>
+          <li>Parking signs (print or purchase)</li>
+        </ul>
+      </div>
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag" style="margin-top:2px;">Assemble</span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Food & water bags</li>
+          <li>Kids goody bags — sourced, assembled & led by <strong>Waqar Bhai</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Venue Setup -->
+  <div class="section">
+    <div class="section-label">Tue May 26, 6:00 PM — At the venue</div>
+    <div class="card">
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag venue" style="margin-top:2px;">Floor<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Lay tarps & plastic</li>
+          <li>Tape row markings</li>
+        </ul>
+      </div>
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag venue" style="margin-top:2px;">Audio<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Audio system delivery</li>
+          <li>Setup & test</li>
+        </ul>
+      </div>
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag venue" style="margin-top:2px;">Walkthrough<br><span style="font-weight:400;font-size:10px;opacity:0.8;">All Masajids</span></span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Venue walkthrough with all masajid representatives</li>
+        </ul>
+      </div>
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag venue" style="margin-top:2px;">Food<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Set up food distribution tables</li>
+          <li>Arrange food bag storage area</li>
+          <li>Stock tables for self-serve to-go</li>
+        </ul>
+      </div>
+      <div class="prep-row" style="align-items:flex-start;">
+        <span class="prep-tag venue" style="margin-top:2px;">Bounce<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
+        <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
+          <li>Electrician wiring & setup (Tariq & Taha)</li>
+          <li>Bounce house installation <em>(pending approvals — Tariq & Taha)</em></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Things to Bring -->
+  <div class="section">
+    <div class="section-label">Things to bring to the venue</div>
+    <div class="card">
+      <div class="supply-grid">
+        <div class="supply-item"><span class="supply-dot"></span>Water bottles</div>
+        <div class="supply-item"><span class="supply-dot"></span>Snacks</div>
+        <div class="supply-item"><span class="supply-dot"></span>Brown paper bags</div>
+        <div class="supply-item"><span class="supply-dot"></span>Plastic bags</div>
+        <div class="supply-item"><span class="supply-dot"></span>Kids goody bags</div>
+        <div class="supply-item"><span class="supply-dot"></span>Tarps & floor plastic</div>
+        <div class="supply-item"><span class="supply-dot"></span>Tape rolls</div>
+        <div class="supply-item"><span class="supply-dot"></span>Parking signs</div>
+        <div class="supply-item"><span class="supply-dot"></span>First aid kit</div>
+        <div class="supply-item"><span class="supply-dot"></span>Tables (food dist.)</div>
+        <div class="supply-item"><span class="supply-dot"></span>Storage containers</div>
+        <div class="supply-item"><span class="supply-dot"></span>Audio equipment</div>
+        <div class="supply-item"><span class="supply-dot"></span>Volunteer vests/tags</div>
+        <div class="supply-item"><span class="supply-dot"></span>Electrician tools</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Volunteer Teams -->
+  <div class="section">
+    <div class="section-label">Volunteer teams</div>
+    <div class="card">
+      <div class="team-row">
+        <span class="team-num">1</span>
+        <div class="team-body">
+          <div class="team-name">Parking & Traffic <span class="badge badge-isgm">ISGM</span></div>
+          <ul class="sub-bullets">
+            <li>Parking flow management</li>
+            <li>Parking signs</li>
+            <li>Two-shift coverage</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">2</span>
+        <div class="team-body">
+          <div class="team-name">Announcements <span class="badge badge-all">All masajid</span></div>
+          <ul class="sub-bullets">
+            <li>2 volunteers per masjid × 2 timeslots</li>
+            <li>ARA, BIS, ISGM, ISF, WIS</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">3</span>
+        <div class="team-body">
+          <div class="team-name">Entrance & Welcome – Brothers & Sisters <span class="badge badge-all">All masajid</span></div>
+          <ul class="sub-bullets">
+            <li>2 volunteers per masjid × 2 timeslots</li>
+            <li>ARA, BIS, ISGM, ISF, WIS</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">4</span>
+        <div class="team-body">
+          <div class="team-name">Wudu & Bathroom <span class="badge badge-ara">ARA</span></div>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">5</span>
+        <div class="team-body">
+          <div class="team-name">Security, Safety & Medical <span class="badge badge-all">All masajid</span></div>
+          <ul class="sub-bullets">
+            <li>First aid kit</li>
+            <li>Nurse volunteers needed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">6</span>
+        <div class="team-body">
+          <div class="team-name">Food Distribution & Water</div>
+          <ul class="sub-bullets">
+            <li>Man tables for self-serve to-go bags</li>
+            <li>Manage food storage area</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">7</span>
+        <div class="team-body">
+          <div class="team-name">Activity – Bounce House <span class="badge badge-ara">ARA</span></div>
+          <ul class="sub-bullets">
+            <li>5-minute rotations per group</li>
+            <li>Closed 8:30–9:00 AM for parking changeover</li>
+            <li>Volunteers needed</li>
+          </ul>
+        </div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">8</span>
+        <div class="team-body"><div class="team-name">Lost & Found</div></div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">9</span>
+        <div class="team-body"><div class="team-name">Cleanup</div></div>
+      </div>
+      <div class="team-row">
+        <span class="team-num">10</span>
+        <div class="team-body">
+          <div class="team-name">Breakdown & Venue Reset <span class="badge badge-ext">Capital Conventions</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-info" style="margin-top:10px;">
+      <span class="alert-icon">&#9432;</span>
+      <span><strong>Action needed:</strong> Teams 2 & 3 require 2 volunteers per masjid per timeslot. Please reply with your masjid name and which team(s) you can cover.</span>
+    </div>
+    <div class="alert alert-warning" style="margin-top:8px;">
+      <span class="alert-icon">&#9888;</span>
+      <span>All other teams are open to volunteers from any masjid. Reply to sign up or share ideas. JazakAllah Khayran 🤲</span>
+    </div>
+  </div>
+
+  <!-- Open Follow-up Items -->
+  <div class="section">
+    <div class="section-label">Open follow-up items</div>
+    <div class="card">
+      <div class="followup-row">
+        <span class="fu-owner">Tariq & Taha</span>
+        <span class="fu-text">Town approval for bounce house – tent request submitted</span>
+        <span class="fu-badge status-pending">Pending</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner">Tariq & Taha</span>
+        <span class="fu-text">Trade center confirmation of bounce house setup</span>
+        <span class="fu-badge status-pending">Pending</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner">Tariq & Taha</span>
+        <span class="fu-text">Confirm electrician for wiring & bounce house power setup</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner">ARA</span>
+        <span class="fu-text">Assign bounce house volunteers (Team 7)</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner">All masajid</span>
+        <span class="fu-text">Submit volunteer names for Teams 2 & 3 (Announcements & Welcome)</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner">Waqar Bhai</span>
+        <span class="fu-text">Source & assemble kids goody bags</span>
+        <span class="fu-badge status-progress">In progress</span>
+      </div>
+    </div>
+    <div class="alert alert-danger" style="margin-top:10px;">
+      <span class="alert-icon">&#9888;</span>
+      <span><strong>Urgent:</strong> Bounce house cannot proceed without both town approval AND trade center confirmation. Tariq & Taha please follow up as soon as possible.</span>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WhatsApp Copy -->
+  <div class="section">
+    <div class="section-label">WhatsApp message — copy & share</div>
+    <div class="whatsapp-box">
+      <div class="wa-pre" id="wa-text">🕌 *United Eid Prayer – Wed May 27, 2026*
+Assalamu Alaikum! Full coordination plan below. Please read, volunteer, and reply with ideas or sign-ups.
+
+📍 *VENUE*
+Best Western Royal Plaza Trade Center
+181 Royal Plaza Dr West, Marlborough, MA 01752
+🍎 Apple Maps: https://maps.apple/p/ag.66YpnZUk7d9
+🗺 Google Maps: https://maps.app.goo.gl/WMweW4RGpz1bCS4SA?g_st=ac
+
+━━━━━━━━━━━━━━━━━━━━
+🕐 *EID SALAH SCHEDULE*
+• 7:00 AM – Takbirat
+• 7:30 AM – First Eid Salah
+• 8:30 AM – Bounce house closes (parking changeover)
+• 9:00 AM – Takbirat · Bounce house reopens
+• 9:30 AM – Second Eid Salah
+
+━━━━━━━━━━━━━━━━━━━━
+📦 *PURCHASE & PREP (Mon–Tue, before venue)*
+• Water bottles
+• Snacks
+• Plastic bags
+• Brown paper / handled takeout bags
+• Tarps & floor plastic
+• Tape rolls
+• Storage containers (for food bags)
+• Volunteer vests or tags
+• Parking signs (print or purchase)
+• Goody bag contents – sourced & assembled by Waqar Bhai (kids only)
+
+━━━━━━━━━━━━━━━━━━━━
+🏗️ *TUE MAY 26 – AT THE VENUE (6:00 PM)*
+• Lay floor tarps & plastic, tape markings
+• Audio setup & venue walkthrough (equipment brought by team)
+• Set up food distribution tables
+• Arrange storage area for food bags
+• Stock tables (self-serve to-go setup)
+• Electrician wiring & bounce house setup (Tariq & Taha – pending approvals)
+
+━━━━━━━━━━━━━━━━━━━━
+🎒 *BRING TO VENUE*
+Water bottles · Snacks · Brown paper bags · Plastic bags · Kids goody bags · Tarps & plastic · Tape · Parking signs · First aid kit · Tables · Storage containers · Audio equipment · Volunteer vests/tags · Electrician tools
+
+━━━━━━━━━━━━━━━━━━━━
+🙋 *VOLUNTEER TEAMS*
+1. Parking & Traffic (ISGM) – flow, signs, 2 shifts
+2. Announcements (All masajid: ARA, BIS, ISGM, ISF, WIS) – 2 volunteers/masjid × 2 timeslots ⚠️
+3. Entrance & Welcome – Brothers & Sisters (All masajid) – 2 volunteers/masjid × 2 timeslots ⚠️
+4. Wudu & Bathroom (ARA)
+5. Security, Safety & Medical (All) – first aid + nurse needed
+6. Food Distribution & Water – man tables, manage storage
+7. Bounce House (ARA) – 5-min rotations · Closed 8:30–9:00 AM · Volunteers needed ⚠️
+8. Lost & Found
+9. Cleanup
+10. Breakdown & Venue Reset – Capital Conventions
+
+━━━━━━━━━━━━━━━━━━━━
+⚠️ *OPEN ITEMS – ACTION NEEDED*
+• Town approval for bounce house (tent request submitted) – Tariq & Taha
+• Trade center bounce house confirmation – Tariq & Taha
+• Electrician for wiring & setup – Tariq & Taha
+• ARA: assign bounce house volunteers (Team 7)
+• All masajid: send 2 volunteer names per timeslot for Teams 2 & 3
+• Waqar Bhai: goody bag sourcing & assembly – in progress
+
+🚨 Bounce house cannot proceed without town + venue approval. Please follow up urgently.
+
+━━━━━━━━━━━━━━━━━━━━
+To volunteer or share ideas, reply to this message.
+JazakAllah Khayran 🤲</div>
+      <button class="copy-btn" onclick="copyWA()" id="copy-btn">&#128203; Copy for WhatsApp</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function copyWA() {
+  const text = document.getElementById('wa-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.innerHTML = '&#128203; Copy for WhatsApp'; }, 2200);
+  }).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const btn = document.getElementById('copy-btn');
+    btn.textContent = '✓ Copied!';
+    setTimeout(() => { btn.innerHTML = '&#128203; Copy for WhatsApp'; }, 2200);
+  });
+}
+</script>
+</body>
+</html>
