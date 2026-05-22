@@ -41,7 +41,14 @@
 
   .container { max-width: 780px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
 
-  .section { margin-bottom: 2.5rem; }
+  .section { margin-bottom: 2rem; }
+  .section-header { display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; margin-bottom: 0; padding: 4px 2px 12px; }
+  .section-header:hover .section-label { color: var(--blue); }
+  .section-header .section-label { margin-bottom: 0; }
+  .chevron { font-size: 14px; color: var(--text-muted); transition: transform 0.25s ease; flex-shrink: 0; }
+  .chevron.closed { transform: rotate(-90deg); }
+  .section-body { transition: max-height 0.3s ease, opacity 0.25s ease; overflow: hidden; }
+  .section-body.collapsed { max-height: 0 !important; opacity: 0; pointer-events: none; }
   .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
   .card { background: var(--card); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; }
 
@@ -75,6 +82,7 @@
   .badge-ara { background: var(--gold-light); color: var(--gold); }
   .badge-isgm { background: var(--amber-light); color: var(--amber); }
   .badge-ext { background: var(--gray-light); color: var(--gray); }
+  .mb { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:20px; background:linear-gradient(135deg,#1A3A6B,#2563B0); color:#fff; margin:0 2px; white-space:nowrap; vertical-align:middle; }
 
   .followup-row { display: flex; align-items: flex-start; gap: 12px; padding: 12px 18px; border-bottom: 0.5px solid var(--border); }
   .followup-row:last-child { border-bottom: none; }
@@ -123,11 +131,11 @@
         <a href="https://maps.app.goo.gl/WMweW4RGpz1bCS4SA?g_st=ac" target="_blank" style="color:rgba(255,255,255,0.9);font-size:13px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:1px;">&#x1F5FA; Google Maps</a>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;">
-        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;">ARA</span>
-        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;">BIS</span>
-        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;">ISGM</span>
-        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;">ISF</span>
-        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;">WIS</span>
+        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;"><span class="mb">ARA</span></span>
+        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;"><span class="mb">BIS</span></span>
+        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;"><span class="mb">ISGM</span></span>
+        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;"><span class="mb">ISF</span></span>
+        <span style="background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:20px;padding:3px 12px;font-size:13px;font-weight:500;"><span class="mb">WIS</span></span>
       </div>
     </div>
   </div>
@@ -137,9 +145,28 @@
 
 <div class="container">
 
+  <!-- Jump Nav -->
+  <div style="margin-bottom:2rem;">
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:10px;">Jump to masjid tasks</div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a href="#masjid-ara" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ARA</span></a>
+      <a href="#masjid-bis" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">BIS</span></a>
+      <a href="#masjid-isgm" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ISGM</span></a>
+      <a href="#masjid-isf" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ISF</span></a>
+      <a href="#masjid-wis" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">WIS</span></a>
+      <a href="#shopping-list" style="padding:7px 16px;background:#FDF3CC;color:#9A7200;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(154,114,0,0.2);">🛒 Shopping List</a>
+    </div>
+  </div>
+
+
+
   <!-- Schedule -->
   <div class="section">
-    <div class="section-label">Eid salah schedule</div>
+    <div class="section-header" onclick="toggleSection('sec0')">
+      <div class="section-label">Eid salah schedule</div>
+      <span class="chevron" id="chev-sec0">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec0">
     <div class="card">
       <div class="schedule-row highlight">
         <div class="sched-time">7:00 AM</div><div class="sched-label">Takbirat</div>
@@ -176,58 +203,71 @@
         </div>
       </div>
     </div>
+    </div>
   </div>
 
   <!-- Purchase & Prep -->
   <div class="section">
-    <div class="section-label">Mon–Tue — Purchase & prep (before venue)</div>
+    <div class="section-header" onclick="toggleSection('sec1')">
+      <div class="section-label">Mon–Tue — Purchase & prep (before venue)</div>
+      <span class="chevron" id="chev-sec1">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec1">
     <div class="card">
       <div class="prep-row" style="align-items:flex-start;">
         <span class="prep-tag purchase" style="margin-top:2px;">Purchase</span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Water bottles</li>
-          <li>Snacks</li>
-          <li>Plastic bags</li>
-          <li>Brown paper / handled takeout bags</li>
-          <li>Tarps & floor plastic</li>
-          <li>Tape rolls</li>
-          <li>Storage containers for food bags</li>
-          <li>Volunteer vests or tags</li>
-          <li>Parking signs (print or purchase)</li>
+          <li>1,500 small water bottles &amp; clear (produce) bags &mdash; <span class="mb">Tariq (ARA)</span> deliver to facility</li>
+          <li>1,500 Samosa &amp; Baklava packets in styrofoam boxes (600 per salah, 300 reserved) &mdash; <span class="mb">Tariq (ARA)</span></li>
+          <li>Napkins &amp; styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+          <li>400 kids goody bags &mdash; <span class="mb">Waqar (BIS)</span></li>
+          <li>Brown paper bags (200 pre-cut) &mdash; <span class="mb">ISGM</span></li>
+          <li>Tarp for food covering &mdash; <span class="mb">ISGM</span></li>
+          <li>4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
+          <li>Tape for floor markings &mdash; <span class="mb">Taha (ISF)</span> coordinate with <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+          <li>Trash bags</li>
+          <li>Volunteer vests / tags &mdash; <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+          <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+          <li>First aid kits &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         </ul>
       </div>
       <div class="prep-row" style="align-items:flex-start;">
         <span class="prep-tag" style="margin-top:2px;">Assemble</span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Food & water bags</li>
-          <li>Kids goody bags — sourced, assembled & led by <strong>Waqar (BIS)</strong></li>
+          <li>Snack boxes &amp; food bags assembled at <span class="mb">BIS</span> on May 26 (Maghrib &amp; Isha)</li>
+          <li>Water bottles &amp; produce bags delivered to <span class="mb">BIS</span> before assembly</li>
+          <li>400 kids goody bags &mdash; <span class="mb">Waqar (BIS)</span></li>
         </ul>
       </div>
+    </div>
     </div>
   </div>
 
   <!-- Venue Setup -->
   <div class="section">
-    <div class="section-label">Tue May 26, 6:00 PM — At the venue</div>
+    <div class="section-header" onclick="toggleSection('sec2')">
+      <div class="section-label">Tue May 26, 6:00 PM — At the venue</div>
+      <span class="chevron" id="chev-sec2">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec2">
     <div class="card">
       <div class="prep-row" style="align-items:flex-start;">
         <span class="prep-tag venue" style="margin-top:2px;">Floor<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Lay tarps & plastic</li>
-          <li>Tape row markings</li>
+          <li>Tape row markings &mdash; <span class="mb">Taha (ISF)</span></li>
         </ul>
       </div>
       <div class="prep-row" style="align-items:flex-start;">
-        <span class="prep-tag venue" style="margin-top:2px;">Audio<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
+        <span class="prep-tag venue" style="margin-top:2px;">Audio<br><span style="font-weight:400;font-size:10px;opacity:0.8;"><span class="mb">ARA</span></span></span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Audio system delivery</li>
-          <li>Setup & test</li>
+          <li>Audio system delivery &mdash; <span class="mb">ARA</span></li>
+          <li>Setup &amp; test &mdash; <span class="mb">ARA</span></li>
         </ul>
       </div>
       <div class="prep-row" style="align-items:flex-start;">
-        <span class="prep-tag venue" style="margin-top:2px;">Walkthrough<br><span style="font-weight:400;font-size:10px;opacity:0.8;">All Masajids</span></span>
+        <span class="prep-tag venue" style="margin-top:2px;">Walkthrough<br><span style="font-weight:400;font-size:10px;opacity:0.8;"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span></span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Venue walkthrough with all masajid representatives</li>
+          <li>Venue walkthrough with <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span> representatives</li>
         </ul>
       </div>
       <div class="prep-row" style="align-items:flex-start;">
@@ -241,48 +281,60 @@
       <div class="prep-row" style="align-items:flex-start;">
         <span class="prep-tag venue" style="margin-top:2px;">Bounce<br><span style="font-weight:400;font-size:10px;opacity:0.8;">Assign Volunteer</span></span>
         <ul style="padding-left:18px;font-size:14px;line-height:1.9;color:var(--text);">
-          <li>Electrician wiring & setup (Tariq (ARA) & Taha (ISF))</li>
-          <li>Bounce house installation <em>(pending approvals — Tariq (ARA) & Taha (ISF))</em></li>
+          <li>Electrician wiring &amp; setup &mdash; <span class="mb">Tariq (ARA)</span> <span class="mb">Taha (ISF)</span></li>
+          <li>Bounce house installation (pending approvals) &mdash; <span class="mb">Tariq (ARA)</span> <span class="mb">Taha (ISF)</span></li>
         </ul>
       </div>
+    </div>
     </div>
   </div>
 
   <!-- Things to Bring -->
   <div class="section">
-    <div class="section-label">Things to bring to the venue</div>
+    <div class="section-header" onclick="toggleSection('sec3')">
+      <div class="section-label">Things to bring to the venue</div>
+      <span class="chevron" id="chev-sec3">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec3">
     <div class="card">
       <ul style="padding: 14px 18px 14px 34px; font-size: 14px; line-height: 1.9; color: var(--text); margin: 0;">
-        <li>Water bottles</li>
-        <li>Snacks</li>
-        <li>Brown paper bags</li>
-        <li>Plastic bags</li>
-        <li>Kids goody bags</li>
-        <li>Tarps & floor plastic</li>
-        <li>Tape rolls</li>
-        <li>Parking signs</li>
-        <li>First aid kit</li>
-        <li>Tables (food distribution)</li>
-        <li>Storage containers</li>
+        <li>1,500 water bottles &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>1,500 Samosa &amp; Baklava packets (assembled at <span class="mb">BIS</span>) &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Napkins &amp; styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>400 kids goody bags &mdash; <span class="mb">Waqar (BIS)</span></li>
+        <li>Brown paper bags (200 pre-cut) &mdash; <span class="mb">ISGM</span></li>
+        <li>4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
+        <li>Tarp for food covering &mdash; <span class="mb">ISGM</span></li>
+        <li><s style="color:var(--text-muted);">Tarps &amp; floor plastic</s> &mdash; <em style="color:var(--text-muted);font-size:12px;">skipped</em></li>
+        <li>Tape rolls (floor markings) &mdash; <span class="mb">Taha (ISF)</span> coordinate with <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+        <li>2,000 produce / plastic bags &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Trash bags</li>
+        <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>First aid kits &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Audio equipment</li>
-        <li>Volunteer vests / tags</li>
+        <li>Volunteer vests / tags &mdash; <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
         <li>Electrician tools</li>
       </ul>
+    </div>
     </div>
   </div>
 
   <!-- Volunteer Teams -->
   <div class="section">
-    <div class="section-label">Volunteer teams</div>
+    <div class="section-header" onclick="toggleSection('sec4')">
+      <div class="section-label">Volunteer teams</div>
+      <span class="chevron" id="chev-sec4">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec4">
     <div class="card">
       <div class="team-row">
         <span class="team-num">1</span>
         <div class="team-body">
-          <div class="team-name">Parking & Traffic <span class="badge badge-isgm">ISGM</span></div>
+          <div class="team-name">Parking & Traffic <span class="badge badge-isgm"><span class="mb">ISGM</span><span class="mb">ISF</span></span></div>
           <ul class="sub-bullets">
-            <li>Parking flow management</li>
-            <li>Parking signs</li>
-            <li>Two-shift coverage</li>
+            <li>Parking flow management &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+            <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+            <li>Two-shift coverage &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
           </ul>
         </div>
       </div>
@@ -292,7 +344,7 @@
           <div class="team-name">Announcements <span class="badge badge-all">All masajid</span></div>
           <ul class="sub-bullets">
             <li>2 volunteers per masjid × 2 timeslots</li>
-            <li>ARA, BIS, ISGM, ISF, WIS</li>
+            <li><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
           </ul>
         </div>
       </div>
@@ -302,14 +354,14 @@
           <div class="team-name">Entrance & Welcome – Brothers & Sisters <span class="badge badge-all">All masajid</span></div>
           <ul class="sub-bullets">
             <li>2 volunteers per masjid × 2 timeslots</li>
-            <li>ARA, BIS, ISGM, ISF, WIS</li>
+            <li><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
           </ul>
         </div>
       </div>
       <div class="team-row">
         <span class="team-num">4</span>
         <div class="team-body">
-          <div class="team-name">Wudu & Bathroom <span class="badge badge-ara">ARA</span></div>
+          <div class="team-name">Wudu & Bathroom <span class="badge badge-ara"><span class="mb">ARA</span></span></div>
         </div>
       </div>
       <div class="team-row">
@@ -335,7 +387,7 @@
       <div class="team-row">
         <span class="team-num">7</span>
         <div class="team-body">
-          <div class="team-name">Activity – Bounce House <span class="badge badge-ara">ARA</span></div>
+          <div class="team-name">Activity – Bounce House <span class="badge badge-ara"><span class="mb">ARA</span></span></div>
           <ul class="sub-bullets">
             <li>5-minute rotations per group</li>
             <li>Closed 8:30–9:00 AM for parking changeover</li>
@@ -363,51 +415,56 @@
       <span><strong>Action needed:</strong> Teams 2 & 3 require 2 volunteers per masjid per timeslot. Please reply with your masjid name and which team(s) you can cover.</span>
     </div>
 
+    </div>
   </div>
 
   <!-- Open Follow-up Items -->
   <div class="section">
-    <div class="section-label">Open follow-up items</div>
+    <div class="section-header" onclick="toggleSection('sec5')">
+      <div class="section-label">Open follow-up items</div>
+      <span class="chevron" id="chev-sec5">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec5">
     <div class="card">
       <div class="followup-row">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">1.</span>
-        <span class="fu-owner">Tariq (ARA) & Taha (ISF)</span>
+        <span class="fu-owner"><span class="mb">Tariq (<span class="mb">ARA</span>)</span> & <span class="mb">Taha (<span class="mb">ISF</span>)</span></span>
         <span class="fu-text">Town approval for bounce house – tent request submitted</span>
         <span class="fu-badge status-pending">Pending</span>
       </div>
       <div class="followup-row" style="opacity:0.55;">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">2.</span>
-        <span class="fu-owner" style="text-decoration:line-through;">Ikram (ISGM)</span>
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Ikram (<span class="mb">ISGM</span>)</span></span>
         <span class="fu-text" style="text-decoration:line-through;">Trade center confirmation of bounce house setup – coordinated with venue</span>
         <span class="fu-badge" style="background:var(--blue-light);color:var(--blue);">✓ Done</span>
       </div>
       <div class="followup-row" style="opacity:0.55;">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">3.</span>
-        <span class="fu-owner" style="text-decoration:line-through;">Tariq (ARA) & Taha (ISF)</span>
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Tariq (<span class="mb">ARA</span>)</span> & <span class="mb">Taha (<span class="mb">ISF</span>)</span></span>
         <span class="fu-text" style="text-decoration:line-through;">Confirm electrician for wiring & bounce house power setup</span>
         <span class="fu-badge" style="background:var(--blue-light);color:var(--blue);">✓ Done</span>
       </div>
       <div class="followup-row">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">4.</span>
-        <span class="fu-owner">ARA</span>
+        <span class="fu-owner"><span class="mb">ARA</span></span>
         <span class="fu-text">Assign bounce house volunteers (Team 7)</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">5.</span>
-        <span class="fu-owner">All masajid</span>
+        <span class="fu-owner"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span>
         <span class="fu-text">Submit volunteer names for Teams 2 & 3 (Announcements & Welcome)</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">6.</span>
-        <span class="fu-owner">Waqar (BIS)</span>
+        <span class="fu-owner"><span class="mb">Waqar (<span class="mb">BIS</span>)</span></span>
         <span class="fu-text">Source & assemble kids goody bags</span>
         <span class="fu-badge status-progress">In progress</span>
       </div>
       <div class="followup-row">
         <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">7.</span>
-        <span class="fu-owner">Ikram (ISGM)</span>
+        <span class="fu-owner"><span class="mb">Ikram (<span class="mb">ISGM</span>)</span></span>
         <span class="fu-text">Obtain Certificate of Insurance (COI) for the event and submit to trade center</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
@@ -416,7 +473,7 @@
       <span class="alert-icon">&#9888;</span>
       <span><strong>Action Required:</strong> Town approval for the bounce house (item 1) and the COI insurance (item 7) are both outstanding. Please ensure these are resolved well ahead of the event.</span>
     </div>
-  </div>
+  </div></div>
 
 
 </div>
@@ -424,7 +481,129 @@
 
 
 <div style="max-width:780px;margin:0 auto;padding:0 1.25rem 4rem;">
-  <div style="border-top:0.5px solid rgba(26,75,140,0.12);margin-bottom:2rem;"></div>
+  
+  <!-- Shopping List -->
+  <div style="margin-bottom:2.5rem;" id="shopping-list">
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:12px;">🛒 Shopping List</div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>1,500 small water bottles &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>1,500 Samosa &amp; Baklava packets in styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Napkins &amp; styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>400 kids goody bag contents &mdash; <span class="mb">Waqar (BIS)</span></li>
+        <li>Brown paper bags (200 pre-cut) &mdash; <span class="mb">ISGM</span></li>
+        <li>Tarp for food covering &mdash; <span class="mb">ISGM</span></li>
+        <li>4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
+        <li>Tape rolls (floor markings) &mdash; <span class="mb">Taha (ISF)</span> coordinate with <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+        <li>2,000 produce / plastic bags &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Trash bags</li>
+        <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>First aid kits &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Volunteer vests / tags &mdash; <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Masjid To-Do Sections -->
+  <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:16px;">Masjid To-Do Lists</div>
+
+  <!-- ARA -->
+  <div style="margin-bottom:1.5rem;" id="masjid-ara">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ARA</span></span>
+      
+    </div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Audio system delivery, setup &amp; test &mdash; <span class="mb">ARA</span></li>
+        <li>Purchase &amp; deliver 1,500 small water bottles to facility &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Purchase 1,500 Samosa &amp; Baklava packets in styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Deliver snacks to <span class="mb">BIS</span> for assembly at <span class="mb">BIS</span> (Maghrib &amp; Isha, May 26) &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Purchase &amp; deliver clear produce bags to facility (Tue) &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Bounce house setup &amp; coordination (pending approvals) &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Volunteer assignments for Bounce House team (Team 7) &mdash; <span class="mb">ARA</span></li>
+        <li>Wudu &amp; Bathroom team coverage (Team 4) &mdash; <span class="mb">ARA</span></li>
+        <li>Bring volunteer vests / tags &mdash; <span class="mb">ARA</span></li>
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ARA</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BIS -->
+  <div style="margin-bottom:1.5rem;" id="masjid-bis">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">BIS</span></span>
+      
+    </div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Source &amp; purchase 400 kids goody bag contents &mdash; <span class="mb">Waqar (BIS)</span></li>
+        <li>Assemble 400 kids goody bags &mdash; <span class="mb">Waqar (BIS)</span></li>
+        <li>Host snack box &amp; food bag assembly at <span class="mb">BIS</span> on May 26 (Maghrib &amp; Isha)</li>
+        <li>Bring volunteer vests / tags &mdash; <span class="mb">BIS</span></li>
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">BIS</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ISGM -->
+  <div style="margin-bottom:1.5rem;" id="masjid-isgm">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ISGM</span></span>
+      
+    </div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Purchase 200 pre-cut brown paper bags &mdash; <span class="mb">ISGM</span></li>
+        <li>Bring tarp for food covering &mdash; <span class="mb">ISGM</span></li>
+        <li>Parking &amp; Traffic team coverage, 2 shifts (Team 1) &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Bring 4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
+        <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Obtain Certificate of Insurance (COI) &amp; submit to trade center &mdash; <span class="mb">Ikram (ISGM)</span></li>
+        <li>Bring volunteer vests / tags &mdash; <span class="mb">ISGM</span></li>
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISGM</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ISF -->
+  <div style="margin-bottom:1.5rem;" id="masjid-isf">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ISF</span></span>
+      
+    </div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Purchase &amp; bring tape for floor markings, coordinated by <span class="mb">Taha (ISF)</span> for <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
+        <li>Bounce house town approval follow-up &mdash; <span class="mb">Taha (ISF)</span></li>
+        <li>Electrician coordination for bounce house power setup &mdash; <span class="mb">Taha (ISF)</span> <span style="color:#1A4B8C;font-size:12px;">✓ Done</span></li>
+        <li>Parking &amp; Traffic team coverage, 2 shifts (Team 1) &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Bring 4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
+        <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Bring volunteer vests / tags &mdash; <span class="mb">ISF</span></li>
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISF</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WIS -->
+  <div style="margin-bottom:2.5rem;" id="masjid-wis">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">WIS</span></span>
+    </div>
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
+      <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">WIS</span></li>
+        <li>Security, Safety &amp; Medical team volunteers (Team 5) &mdash; <span class="mb">WIS</span></li>
+        <li>Bring volunteer vests / tags &mdash; <span class="mb">WIS</span></li>
+        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">WIS</span></li>
+      </ul>
+    </div>
+  </div>
+
+<div style="border-top:0.5px solid rgba(26,75,140,0.12);margin-bottom:2rem;"></div>
   <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:12px;">WhatsApp Message — Copy & Share</div>
   <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1.25rem 1.5rem;">
     <div id="wa-text" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.85;color:#1A1A2E;white-space:pre-wrap;word-break:break-word;">🕌 *United Eid Prayer – Wed May 27, 2026*
@@ -444,16 +623,47 @@ Best Western Royal Plaza Trade Center
 • 9:30 AM – Second Eid Salah
 
 🤝 *PARTICIPATING MASAJID*
-ARA · BIS · ISGM · ISF · WIS
+<span class="mb">ARA</span> · <span class="mb">BIS</span> · <span class="mb">ISGM</span> · <span class="mb">ISF</span> · <span class="mb">WIS</span>
 
 To volunteer or share ideas, please reply to this message.
 JazakAllah Khayran 🤲</div>
     <button onclick="copyWA()" id="wa-copy-btn" style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;padding:9px 18px;cursor:pointer;border-radius:8px;border:0.5px solid rgba(26,75,140,0.2);background:#E4EDF8;color:#1A4B8C;transition:background 0.15s;">
       📋 Copy for WhatsApp
     </button>
+    </div>
   </div>
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  ['sec0','sec1','sec2','sec3','sec4','sec5'].forEach(function(id) {
+    const body = document.getElementById(id);
+    const chev = document.getElementById('chev-' + id);
+    if (body) { body.classList.add('collapsed'); body.style.maxHeight = '0px'; }
+    if (chev) { chev.classList.add('closed'); }
+  });
+});
+</script>
+<script>
+function toggleSection(id) {
+  const body = document.getElementById(id);
+  const chev = document.getElementById('chev-' + id);
+  const isCollapsed = body.classList.contains('collapsed');
+  if (isCollapsed) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.remove('collapsed');
+    chev.classList.remove('closed');
+    setTimeout(() => { body.style.maxHeight = 'none'; }, 310);
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(() => {
+      body.style.maxHeight = '0px';
+      body.classList.add('collapsed');
+      chev.classList.add('closed');
+    });
+  }
+}
+</script>
 <script>
 function copyWA() {
   const text = document.getElementById('wa-text').innerText;
