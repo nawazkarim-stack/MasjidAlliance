@@ -158,6 +158,7 @@
       <button onclick="jumpAndOpen('sec3','chev-sec3')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🎒 Bring to Venue</button>
       <button onclick="jumpAndOpen('sec4','chev-sec4')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🙋 Volunteer Teams</button>
       <button onclick="jumpAndOpen('sec5','chev-sec5')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">⚠️ Follow-up Items</button>
+      <button onclick="jumpAndOpenDec()" style="padding:6px 14px;background:#E1F5EE;color:#0F6E56;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(15,110,86,0.2);cursor:pointer;">✅ Decisions</button>
     </div>
 
     <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7A7A8A;margin-bottom:6px;">Shopping & To-Do Lists</div>
@@ -461,7 +462,7 @@
       </div>
       <div class="followup-row">
         <span class="fu-owner"><span class="mb">Nawaz (ISGM)</span></span>
-        <span class="fu-text">Check with Marlborough Police on police detail assignment</span>
+        <span class="fu-text">Police detail: follow up with Marlborough Police — if unable, ask them to contact neighbouring departments; also reach out to State Troopers directly referencing submitted request</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
@@ -475,14 +476,44 @@
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
-        <span class="fu-owner"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span>
-        <span class="fu-text">Finalize food menu items — Samosa, Baklava, water, to-go bags</span>
-        <span class="fu-badge status-needed">Needed</span>
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span>
+        <span class="fu-text" style="text-decoration:line-through;">Finalize food menu items — Samosa, Baklava, water, to-go bags</span>
+        <span class="fu-badge status-done">✓ Done</span>
       </div>
       <div class="followup-row">
         <span class="fu-owner"><span class="mb">Waqar (BIS)</span></span>
         <span class="fu-text">Source &amp; assemble 400 kids goody bags</span>
         <span class="fu-badge status-progress">In progress</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">ISGM</span></span>
+        <span class="fu-text">Bring portable AC from ISGM to BIS for cooling food packets</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">Nawaz (ISGM)</span></span>
+        <span class="fu-text">Check with Trade Center if setup can start at 1:00 PM on Tuesday</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">ISGM</span></span>
+        <span class="fu-text">Get 20 thin saf carpets as backup prayer mats</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">ISGM</span></span>
+        <span class="fu-text">Bring TV stand and TV to the venue</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">BIS</span><span class="mb">ISGM</span></span>
+        <span class="fu-text">Check who has a camera to connect to the TV</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">Moin (BIS)</span></span>
+        <span class="fu-text">Give heads up to private security — 2 armed guards needed for the event (decision Tuesday morning)</span>
+        <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row" style="opacity:0.55;">
         <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Ikram (ISGM)</span></span>
@@ -510,6 +541,33 @@
 <div style="max-width:780px;margin:0 auto;padding:0 1.25rem 4rem;">
   
   <!-- Shopping List -->
+  <!-- Decisions -->
+  <div class="section" id="sec-dec-wrapper" style="margin-bottom:2rem;">
+    <div class="section-header" onclick="toggleSection('sec-dec')">
+      <div class="section-label">✅ Decisions Made</div>
+      <span class="chevron" id="chev-sec-dec">&#9660;</span>
+    </div>
+    <div class="section-body" id="sec-dec">
+    <div class="card">
+      <div style="padding:4px 0;">
+        <ul style="padding:12px 18px 12px 34px;font-size:14px;line-height:1.9;color:var(--text);margin:0;">
+          <li>Food confirmed: <strong>Samosa &amp; Baklava</strong> in styrofoam boxes</li>
+          <li>Portable AC from <span class="mb">ISGM</span> to be used at <span class="mb">BIS</span> for cooling food packets before the event</li>
+          <li>Brown paper bags to serve as prayer mats for anyone who forgot their musalla</li>
+          <li>TV will be set up for Sisters section — camera zoomed out to show the speaker at a distance</li>
+          <li>No recording, streaming, or YouTube of the event or speakers</li>
+          <li><span class="mb">ISGM</span> will collect all donations and split between masajid</li>
+          <li>Each masjid's expenses will be tallied — differences equally divided to offset costs</li>
+          <li>Police detail: If Marlborough Police cannot fulfill, ask them to contact neighbouring departments — also reach out to State Troopers directly, referencing the submitted request &mdash; <span class="mb">Nawaz (ISGM)</span></li>
+          <li>Private security: give heads up that 2 armed guards will be needed — <span class="mb">Moin (BIS)</span></li>
+          <li>Decision on private security to be finalized Tuesday morning</li>
+          <li>Next group meeting: <strong>Monday May 26, 11:00 AM</strong></li>
+        </ul>
+      </div>
+    </div>
+    </div>
+  </div>
+
   <div style="margin-bottom:2rem;" id="shopping-list">
     <div onclick="toggleMSection('shop')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 12px;user-select:none;">
       <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;">🛒 Shopping List</div>
@@ -555,6 +613,7 @@
         <li>Wudu &amp; Bathroom team coverage &mdash; <span class="mb">ARA</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ARA</span></li>
         <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ARA</span></li>
+        <li>Cleanup after event &mdash; <span class="mb">ARA</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ARA</span></li>
       </ul>
     </div>
@@ -575,6 +634,10 @@
         <li>Host snack box &amp; food bag assembly at <span class="mb">BIS</span> on May 26 (Maghrib &amp; Isha)</li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">BIS</span></li>
         <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">BIS</span></li>
+        <li>Check who has a camera to connect to the TV &mdash; <span class="mb">BIS</span><span class="mb">ISGM</span></li>
+        <li>Venue setup on Tue May 26 &mdash; <span class="mb">BIS</span></li>
+        <li>Cleanup after event &mdash; <span class="mb">BIS</span></li>
+        <li>Give heads up to private security — 2 armed guards needed (decision Tue morning) &mdash; <span class="mb">Moin (BIS)</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">BIS</span></li>
       </ul>
     </div>
@@ -598,8 +661,15 @@
         <li>Bring 4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
         <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Obtain Certificate of Insurance (COI) &amp; submit to trade center &mdash; <span class="mb">Ikram (ISGM)</span></li>
+        <li>Bring portable AC to <span class="mb">BIS</span> for cooling food packets</li>
+        <li>Check with Trade Center if setup can start at 1:00 PM Tuesday &mdash; <span class="mb">Nawaz (ISGM)</span></li>
+        <li>Get 20 thin saf carpets as backup prayer mats</li>
+        <li>Bring TV stand and TV to the venue</li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ISGM</span></li>
         <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ISGM</span></li>
+        <li>Cleanup after event &mdash; <span class="mb">ISGM</span></li>
+        <li>Police detail: follow up with Marlborough Police — if unable, escalate to neighbouring departments &amp; State Troopers &mdash; <span class="mb">Nawaz (ISGM)</span></li>
+        <li>Collect all event donations and split between masajid &mdash; <span class="mb">ISGM</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISGM</span></li>
       </ul>
     </div>
@@ -624,6 +694,7 @@
         <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ISF</span></li>
         <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ISF</span></li>
+        <li>Cleanup after event &mdash; <span class="mb">ISF</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISF</span></li>
       </ul>
     </div>
@@ -640,6 +711,8 @@
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
         <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">WIS</span></li>
+        <li>Venue setup on Tue May 26 &mdash; <span class="mb">WIS</span></li>
+        <li>Cleanup after event &mdash; <span class="mb">WIS</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">WIS</span></li>
         <li>Security, Safety &amp; Medical team volunteers &mdash; <span class="mb">WIS</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">WIS</span></li>
@@ -696,7 +769,7 @@ Bring your family & friends. Let's make it a beautiful Eid together InshaaAllah!
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  ['sec0','sec1','sec2','sec3','sec4','sec5'].forEach(function(id) {
+  ['sec0','sec1','sec2','sec3','sec4','sec5','sec-dec'].forEach(function(id) {
     const body = document.getElementById(id);
     const chev = document.getElementById('chev-' + id);
     if (body) { body.classList.add('collapsed'); body.style.maxHeight = '0px'; }
@@ -777,6 +850,20 @@ function jumpAndOpen(secId, chevId) {
   }
   setTimeout(function() {
     var el = document.getElementById(secId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
+function jumpAndOpenDec() {
+  var body = document.getElementById('sec-dec');
+  var chev = document.getElementById('chev-sec-dec');
+  if (body && body.classList.contains('collapsed')) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.remove('collapsed');
+    if (chev) chev.classList.remove('closed');
+    setTimeout(function() { body.style.maxHeight = 'none'; }, 310);
+  }
+  setTimeout(function() {
+    var el = document.getElementById('sec-dec');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }, 50);
 }
