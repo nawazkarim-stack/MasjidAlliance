@@ -92,6 +92,7 @@
   .status-pending { background: var(--amber-light); color: var(--amber); }
   .status-needed { background: var(--red-light); color: var(--red); }
   .status-progress { background: var(--blue-light); color: var(--blue); }
+  .status-done { background: var(--blue-light); color: var(--blue); }
 
   .alert { border-radius: var(--radius); padding: 13px 16px; font-size: 13px; margin-top: 10px; display: flex; align-items: flex-start; gap: 10px; }
   .alert-warning { background: var(--amber-light); color: var(--amber); border: 0.5px solid rgba(186,117,23,0.2); }
@@ -147,14 +148,31 @@
 
   <!-- Jump Nav -->
   <div style="margin-bottom:2rem;">
-    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:10px;">Jump to masjid tasks</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;">
-      <a href="#masjid-ara" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ARA</span></a>
-      <a href="#masjid-bis" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">BIS</span></a>
-      <a href="#masjid-isgm" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ISGM</span></a>
-      <a href="#masjid-isf" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">ISF</span></a>
-      <a href="#masjid-wis" style="padding:7px 16px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(26,75,140,0.2);"><span class="mb">WIS</span></a>
-      <a href="#shopping-list" style="padding:7px 16px;background:#FDF3CC;color:#9A7200;border-radius:20px;font-size:13px;font-weight:500;text-decoration:none;border:0.5px solid rgba(154,114,0,0.2);">🛒 Shopping List</a>
+    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:10px;">Jump to section</div>
+
+    <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7A7A8A;margin-bottom:6px;margin-top:4px;">Coordination Plan</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+      <button onclick="jumpAndOpen('sec0','chev-sec0')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🕐 Schedule</button>
+      <button onclick="jumpAndOpen('sec1','chev-sec1')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">📦 Purchase & Prep</button>
+      <button onclick="jumpAndOpen('sec2','chev-sec2')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🏗️ Venue Setup</button>
+      <button onclick="jumpAndOpen('sec3','chev-sec3')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🎒 Bring to Venue</button>
+      <button onclick="jumpAndOpen('sec4','chev-sec4')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">🙋 Volunteer Teams</button>
+      <button onclick="jumpAndOpen('sec5','chev-sec5')" style="padding:6px 14px;background:#E4EDF8;color:#1A4B8C;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(26,75,140,0.2);cursor:pointer;">⚠️ Follow-up Items</button>
+    </div>
+
+    <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7A7A8A;margin-bottom:6px;">Shopping & To-Do Lists</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px;">
+      <button onclick="jumpAndOpenM('shop','chev-shop','shopping-list')" style="padding:6px 14px;background:#FDF3CC;color:#9A7200;border-radius:20px;font-size:12px;font-weight:500;border:0.5px solid rgba(154,114,0,0.2);cursor:pointer;">🛒 Shopping List</button>
+      <button onclick="jumpAndOpenM('ara','chev-ara','masjid-ara')" style="padding:6px 14px;background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;">ARA</button>
+      <button onclick="jumpAndOpenM('bis','chev-bis','masjid-bis')" style="padding:6px 14px;background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;">BIS</button>
+      <button onclick="jumpAndOpenM('isgm','chev-isgm','masjid-isgm')" style="padding:6px 14px;background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;">ISGM</button>
+      <button onclick="jumpAndOpenM('isf','chev-isf','masjid-isf')" style="padding:6px 14px;background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;">ISF</button>
+      <button onclick="jumpAndOpenM('wis','chev-wis','masjid-wis')" style="padding:6px 14px;background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;border-radius:20px;font-size:12px;font-weight:600;border:none;cursor:pointer;">WIS</button>
+    </div>
+
+    <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#7A7A8A;margin-bottom:6px;">Community</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button onclick="jumpAndOpenM('wa','chev-wa','section-wa')" style="padding:6px 14px;background:#25D366;color:#fff;border-radius:20px;font-size:12px;font-weight:500;border:none;cursor:pointer;">📱 WhatsApp Message</button>
     </div>
   </div>
 
@@ -172,7 +190,12 @@
         <div class="sched-time">7:00 AM</div><div class="sched-label">Takbirat</div>
       </div>
       <div class="schedule-row">
-        <div class="sched-time">7:30 AM</div><div class="sched-label">First Eid Salah</div>
+        <div class="sched-time">7:30 AM</div>
+        <div>
+          <div class="sched-label">First Eid Salah</div>
+          <div class="sched-note" style="margin-top:4px;">➤ Reminders in English by <strong>Imam Zubair</strong></div>
+          <div class="sched-note">➤ Salah then Khutbah by <strong>Shaykh Yasir Usmani</strong></div>
+        </div>
       </div>
       <div class="schedule-row">
         <div class="sched-time">7:45 AM</div>
@@ -193,7 +216,12 @@
         <div class="sched-label">Takbirat</div>
       </div>
       <div class="schedule-row">
-        <div class="sched-time">9:30 AM</div><div class="sched-label">Second Eid Salah</div>
+        <div class="sched-time">9:30 AM</div>
+        <div>
+          <div class="sched-label">Second Eid Salah</div>
+          <div class="sched-note" style="margin-top:4px;">➤ Reminders in English by <strong>Mufti Sayanwala</strong></div>
+          <div class="sched-note">➤ Salah then Khutbah by <strong>Mufti Rohul Amin</strong></div>
+        </div>
       </div>
       <div class="schedule-row">
         <div class="sched-time">9:45 AM</div>
@@ -412,7 +440,7 @@
     </div>
     <div class="alert alert-info" style="margin-top:10px;">
       <span class="alert-icon">&#9432;</span>
-      <span><strong>Action needed:</strong> Teams 2 & 3 require 2 volunteers per masjid per timeslot. Please reply with your masjid name and which team(s) you can cover.</span>
+      <span><strong>Action needed:</strong> require 2 volunteers per masjid per timeslot. Please reply with your masjid name and which team(s) you can cover.</span>
     </div>
 
     </div>
@@ -427,51 +455,50 @@
     <div class="section-body" id="sec5">
     <div class="card">
       <div class="followup-row">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">1.</span>
-        <span class="fu-owner"><span class="mb">Tariq (<span class="mb">ARA</span>)</span> & <span class="mb">Taha (<span class="mb">ISF</span>)</span></span>
+        <span class="fu-owner"><span class="mb">Tariq (ARA)</span> &amp; <span class="mb">Taha (ISF)</span></span>
         <span class="fu-text">Town approval for bounce house – tent request submitted</span>
         <span class="fu-badge status-pending">Pending</span>
       </div>
-      <div class="followup-row" style="opacity:0.55;">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">2.</span>
-        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Ikram (<span class="mb">ISGM</span>)</span></span>
-        <span class="fu-text" style="text-decoration:line-through;">Trade center confirmation of bounce house setup – coordinated with venue</span>
-        <span class="fu-badge" style="background:var(--blue-light);color:var(--blue);">✓ Done</span>
-      </div>
-      <div class="followup-row" style="opacity:0.55;">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">3.</span>
-        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Tariq (<span class="mb">ARA</span>)</span> & <span class="mb">Taha (<span class="mb">ISF</span>)</span></span>
-        <span class="fu-text" style="text-decoration:line-through;">Confirm electrician for wiring & bounce house power setup</span>
-        <span class="fu-badge" style="background:var(--blue-light);color:var(--blue);">✓ Done</span>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">Nawaz (ISGM)</span></span>
+        <span class="fu-text">Check with Marlborough Police on police detail assignment</span>
+        <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">4.</span>
         <span class="fu-owner"><span class="mb">ARA</span></span>
-        <span class="fu-text">Assign bounce house volunteers (Team 7)</span>
+        <span class="fu-text">Assign bounce house volunteers</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">5.</span>
         <span class="fu-owner"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span>
-        <span class="fu-text">Submit volunteer names for Teams 2 & 3 (Announcements & Welcome)</span>
+        <span class="fu-text">Submit names for Announcements (1) &amp; Welcome teams (2)</span>
         <span class="fu-badge status-needed">Needed</span>
       </div>
       <div class="followup-row">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">6.</span>
-        <span class="fu-owner"><span class="mb">Waqar (<span class="mb">BIS</span>)</span></span>
-        <span class="fu-text">Source & assemble kids goody bags</span>
+        <span class="fu-owner"><span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></span>
+        <span class="fu-text">Finalize food menu items — Samosa, Baklava, water, to-go bags</span>
+        <span class="fu-badge status-needed">Needed</span>
+      </div>
+      <div class="followup-row">
+        <span class="fu-owner"><span class="mb">Waqar (BIS)</span></span>
+        <span class="fu-text">Source &amp; assemble 400 kids goody bags</span>
         <span class="fu-badge status-progress">In progress</span>
       </div>
-      <div class="followup-row">
-        <span class="fu-owner" style="min-width:24px;font-weight:600;color:var(--text-muted);margin-right:4px;">7.</span>
-        <span class="fu-owner"><span class="mb">Ikram (<span class="mb">ISGM</span>)</span></span>
-        <span class="fu-text">Obtain Certificate of Insurance (COI) for the event and submit to trade center</span>
-        <span class="fu-badge status-needed">Needed</span>
+      <div class="followup-row" style="opacity:0.55;">
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Ikram (ISGM)</span></span>
+        <span class="fu-text" style="text-decoration:line-through;">Obtain Certificate of Insurance (COI) and submit to trade center</span>
+        <span class="fu-badge status-done">✓ Done</span>
       </div>
-    </div>
-    <div class="alert alert-warning" style="margin-top:10px;">
-      <span class="alert-icon">&#9888;</span>
-      <span><strong>Action Required:</strong> Town approval for the bounce house (item 1) and the COI insurance (item 7) are both outstanding. Please ensure these are resolved well ahead of the event.</span>
+      <div class="followup-row" style="opacity:0.55;">
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Ikram (ISGM)</span></span>
+        <span class="fu-text" style="text-decoration:line-through;">Trade center confirmation of bounce house setup – coordinated with venue</span>
+        <span class="fu-badge status-done">✓ Done</span>
+      </div>
+      <div class="followup-row" style="opacity:0.55;">
+        <span class="fu-owner" style="text-decoration:line-through;"><span class="mb">Tariq (ARA)</span> &amp; <span class="mb">Taha (ISF)</span></span>
+        <span class="fu-text" style="text-decoration:line-through;">Confirm electrician for wiring &amp; bounce house power setup</span>
+        <span class="fu-badge status-done">✓ Done</span>
+      </div>
     </div>
   </div></div>
 
@@ -483,8 +510,12 @@
 <div style="max-width:780px;margin:0 auto;padding:0 1.25rem 4rem;">
   
   <!-- Shopping List -->
-  <div style="margin-bottom:2.5rem;" id="shopping-list">
-    <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:12px;">🛒 Shopping List</div>
+  <div style="margin-bottom:2rem;" id="shopping-list">
+    <div onclick="toggleMSection('shop')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 12px;user-select:none;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;">🛒 Shopping List</div>
+      <span class="chevron closed" id="chev-shop">&#9660;</span>
+    </div>
+    <div id="msec-shop" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
         <li>1,500 small water bottles &mdash; <span class="mb">Tariq (ARA)</span></li>
@@ -497,10 +528,8 @@
         <li>Tape rolls (floor markings) &mdash; <span class="mb">Taha (ISF)</span> coordinate with <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
         <li>2,000 produce / plastic bags &mdash; <span class="mb">Tariq (ARA)</span></li>
         <li>Trash bags</li>
-        <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
-        <li>First aid kits &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
-        <li>Volunteer vests / tags &mdash; <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
       </ul>
+    </div>
     </div>
   </div>
 
@@ -508,128 +537,159 @@
   <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:16px;">Masjid To-Do Lists</div>
 
   <!-- ARA -->
-  <div style="margin-bottom:1.5rem;" id="masjid-ara">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ARA</span></span>
-      
+    <div style="margin-bottom:1rem;" id="masjid-ara">
+    <div onclick="toggleMSection('ara')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 10px;user-select:none;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;">ARA To-Do List</span>
+      <span class="chevron closed" id="chev-ara">&#9660;</span>
     </div>
+    <div id="msec-ara" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
         <li>Audio system delivery, setup &amp; test &mdash; <span class="mb">ARA</span></li>
         <li>Purchase &amp; deliver 1,500 small water bottles to facility &mdash; <span class="mb">Tariq (ARA)</span></li>
         <li>Purchase 1,500 Samosa &amp; Baklava packets in styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
+        <li>Purchase napkins &amp; styrofoam boxes &mdash; <span class="mb">Tariq (ARA)</span></li>
         <li>Deliver snacks to <span class="mb">BIS</span> for assembly at <span class="mb">BIS</span> (Maghrib &amp; Isha, May 26) &mdash; <span class="mb">Tariq (ARA)</span></li>
-        <li>Purchase &amp; deliver clear produce bags to facility (Tue) &mdash; <span class="mb">Tariq (ARA)</span></li>
         <li>Bounce house setup &amp; coordination (pending approvals) &mdash; <span class="mb">Tariq (ARA)</span></li>
-        <li>Volunteer assignments for Bounce House team (Team 7) &mdash; <span class="mb">ARA</span></li>
-        <li>Wudu &amp; Bathroom team coverage (Team 4) &mdash; <span class="mb">ARA</span></li>
+        <li>Volunteer assignments for Bounce House team &mdash; <span class="mb">ARA</span></li>
+        <li>Wudu &amp; Bathroom team coverage &mdash; <span class="mb">ARA</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ARA</span></li>
+        <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ARA</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ARA</span></li>
       </ul>
+    </div>
     </div>
   </div>
 
   <!-- BIS -->
-  <div style="margin-bottom:1.5rem;" id="masjid-bis">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">BIS</span></span>
-      
+    <div style="margin-bottom:1rem;" id="masjid-bis">
+    <div onclick="toggleMSection('bis')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 10px;user-select:none;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;">BIS To-Do List</span>
+      <span class="chevron closed" id="chev-bis">&#9660;</span>
     </div>
+    <div id="msec-bis" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
         <li>Source &amp; purchase 400 kids goody bag contents &mdash; <span class="mb">Waqar (BIS)</span></li>
         <li>Assemble 400 kids goody bags &mdash; <span class="mb">Waqar (BIS)</span></li>
         <li>Host snack box &amp; food bag assembly at <span class="mb">BIS</span> on May 26 (Maghrib &amp; Isha)</li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">BIS</span></li>
+        <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">BIS</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">BIS</span></li>
       </ul>
+    </div>
     </div>
   </div>
 
   <!-- ISGM -->
-  <div style="margin-bottom:1.5rem;" id="masjid-isgm">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ISGM</span></span>
-      
+    <div style="margin-bottom:1rem;" id="masjid-isgm">
+    <div onclick="toggleMSection('isgm')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 10px;user-select:none;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;">ISGM To-Do List</span>
+      <span class="chevron closed" id="chev-isgm">&#9660;</span>
     </div>
+    <div id="msec-isgm" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Check with Marlborough Police on police detail assignment &mdash; <span class="mb">Nawaz (ISGM)</span></li>
         <li>Purchase 200 pre-cut brown paper bags &mdash; <span class="mb">ISGM</span></li>
         <li>Bring tarp for food covering &mdash; <span class="mb">ISGM</span></li>
-        <li>Parking &amp; Traffic team coverage, 2 shifts (Team 1) &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Parking &amp; Traffic team coverage, 2 shifts &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Bring 4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
         <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Obtain Certificate of Insurance (COI) &amp; submit to trade center &mdash; <span class="mb">Ikram (ISGM)</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ISGM</span></li>
+        <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ISGM</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISGM</span></li>
       </ul>
+    </div>
     </div>
   </div>
 
   <!-- ISF -->
-  <div style="margin-bottom:1.5rem;" id="masjid-isf">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">ISF</span></span>
-      
+    <div style="margin-bottom:1rem;" id="masjid-isf">
+    <div onclick="toggleMSection('isf')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 10px;user-select:none;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;">ISF To-Do List</span>
+      <span class="chevron closed" id="chev-isf">&#9660;</span>
     </div>
+    <div id="msec-isf" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
         <li>Purchase &amp; bring tape for floor markings, coordinated by <span class="mb">Taha (ISF)</span> for <span class="mb">ARA</span><span class="mb">BIS</span><span class="mb">ISGM</span><span class="mb">ISF</span><span class="mb">WIS</span></li>
         <li>Bounce house town approval follow-up &mdash; <span class="mb">Taha (ISF)</span></li>
         <li>Electrician coordination for bounce house power setup &mdash; <span class="mb">Taha (ISF)</span> <span style="color:#1A4B8C;font-size:12px;">✓ Done</span></li>
-        <li>Parking &amp; Traffic team coverage, 2 shifts (Team 1) &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
+        <li>Parking &amp; Traffic team coverage, 2 shifts &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Parking signs &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Bring 4 tables for food placement &mdash; <span class="mb">ISF</span><span class="mb">ISGM</span></li>
         <li>First aid kit &mdash; <span class="mb">ISGM</span><span class="mb">ISF</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">ISF</span></li>
+        <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">ISF</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">ISF</span></li>
       </ul>
+    </div>
     </div>
   </div>
 
   <!-- WIS -->
-  <div style="margin-bottom:2.5rem;" id="masjid-wis">
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
-      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;"><span class="mb">WIS</span></span>
+    <div style="margin-bottom:1rem;" id="masjid-wis">
+    <div onclick="toggleMSection('wis')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 10px;user-select:none;">
+      <span style="background:linear-gradient(135deg,#1A3A6B,#1A4B8C);color:#fff;font-size:13px;font-weight:600;padding:5px 14px;border-radius:20px;">WIS To-Do List</span>
+      <span class="chevron closed" id="chev-wis">&#9660;</span>
     </div>
+    <div id="msec-wis" class="section-body collapsed" style="max-height:0px;">
     <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1rem 1.25rem;">
       <ul style="padding-left:20px;font-size:14px;line-height:2;color:#1A1A2E;margin:0;">
+        <li>Finalize food menu items (Samosa, Baklava, water, to-go bags) &mdash; <span class="mb">WIS</span></li>
         <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">WIS</span></li>
-        <li>Security, Safety &amp; Medical team volunteers (Team 5) &mdash; <span class="mb">WIS</span></li>
+        <li>Security, Safety &amp; Medical team volunteers &mdash; <span class="mb">WIS</span></li>
         <li>Bring volunteer vests / tags &mdash; <span class="mb">WIS</span></li>
-        <li>Submit names for Announcements (1) &amp; Welcome teams (2) &mdash; <span class="mb">WIS</span></li>
+        
       </ul>
+    </div>
     </div>
   </div>
 
 <div style="border-top:0.5px solid rgba(26,75,140,0.12);margin-bottom:2rem;"></div>
-  <div style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;margin-bottom:12px;">WhatsApp Message — Copy & Share</div>
-  <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1.25rem 1.5rem;">
-    <div id="wa-text" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.85;color:#1A1A2E;white-space:pre-wrap;word-break:break-word;">🕌 *United Eid Prayer – Wed May 27, 2026*
-Assalamu Alaikum! Please see the details below for our United Eid Prayer. We look forward to celebrating this blessed day together.
+  <div id="section-wa" style="margin-bottom:1.5rem;">
+    <div onclick="toggleMSection('wa')" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;padding:4px 2px 12px;user-select:none;">
+      <div style="font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#7A7A8A;">📱 WhatsApp Message to the Community</div>
+      <span class="chevron closed" id="chev-wa">&#9660;</span>
+    </div>
+    <div id="msec-wa" class="section-body collapsed" style="max-height:0px;">
+    <div style="background:#fff;border:0.5px solid rgba(26,75,140,0.12);border-radius:12px;padding:1.25rem 1.5rem;">
+    <div id="wa-text" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.85;color:#1A1A2E;white-space:pre-wrap;word-break:break-word;">🌙 Eid Salah Reminder
+🌟 Join us for Eid Salah on Wednesday, May 27th.
+⚠️ There will be NO Eid Salah in the local Masajids.
+📍 Best Western Royal Plaza Trade Center 181 Royal Plaza Dr, Marlborough, MA 01752
+🍎 Apple Maps https://maps.apple/p/ag.66YpnZUk7d9
+🌍 Google Maps https://maps.app.goo.gl/duKKQqpPKcLpJF6XA?g_st=ac
 
-📍 *VENUE*
-Best Western Royal Plaza Trade Center
-181 Royal Plaza Dr West, Marlborough, MA 01752
-🍎 Apple Maps: https://maps.apple/p/ag.66YpnZUk7d9
-🗺 Google Maps: https://maps.app.goo.gl/WMweW4RGpz1bCS4SA?g_st=ac
+🕖 First Salah — 7:30 AM Takbeerat: 7:00 AM
+➤ Reminders in English by *Imam Zubair*
+➤ Salah then Khutbah by *Shaykh Yasir Usmani*
 
-🕐 *EID SALAH SCHEDULE*
-• 7:00 AM – Takbirat
-• 7:30 AM – First Eid Salah
+🕘 Second Salah — 9:30 AM Takbeerat: 9:00 AM
+➤ Reminders in English by *Mufti Sayanwala*
+➤ Salah then Khutbah by *Mufti Rohul Amin*
 
-• 9:00 AM – Takbirat
-• 9:30 AM – Second Eid Salah
+📋 Reminders:
+❗ Each person must bring their own prayer mat (musalla / janamaz)
+❗ Make wudu before arriving
+❗ Arrive by 7AM / 9AM — parking takes time
+🪑 Chairs setup for seniors
+🅿️ Carpool if possible
+👨‍👩‍👧 Keep children with you at all times
+🎪 Bouncy house opens after Salah — children only
+🚫 No food or drinks in the prayer area
+🍱 To-go food & water after Salah
+✅ Keep aisles & exits clear
 
-🤝 *PARTICIPATING MASAJID*
-<span class="mb">ARA</span> · <span class="mb">BIS</span> · <span class="mb">ISGM</span> · <span class="mb">ISF</span> · <span class="mb">WIS</span>
-
-To volunteer or share ideas, please reply to this message.
-JazakAllah Khayran 🤲</div>
+Bring your family & friends. Let's make it a beautiful Eid together InshaaAllah!</div>
     <button onclick="copyWA()" id="wa-copy-btn" style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-family:'DM Sans',sans-serif;font-weight:500;padding:9px 18px;cursor:pointer;border-radius:8px;border:0.5px solid rgba(26,75,140,0.2);background:#E4EDF8;color:#1A4B8C;transition:background 0.15s;">
       📋 Copy for WhatsApp
     </button>
+    </div>
+    </div>
     </div>
   </div>
 </div>
@@ -682,6 +742,57 @@ function copyWA() {
     btn.textContent = '✓ Copied!';
     setTimeout(() => { btn.innerHTML = '📋 Copy for WhatsApp'; }, 2200);
   });
+}
+</script>
+<script>
+function toggleMSection(id) {
+  var body = document.getElementById('msec-' + id);
+  var chev = document.getElementById('chev-' + id);
+  if (!body) return;
+  var isCollapsed = body.classList.contains('collapsed');
+  if (isCollapsed) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.remove('collapsed');
+    if (chev) chev.classList.remove('closed');
+    setTimeout(function() { body.style.maxHeight = 'none'; }, 310);
+  } else {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    requestAnimationFrame(function() {
+      body.style.maxHeight = '0px';
+      body.classList.add('collapsed');
+      if (chev) chev.classList.add('closed');
+    });
+  }
+}
+</script>
+<script>
+function jumpAndOpen(secId, chevId) {
+  var body = document.getElementById(secId);
+  var chev = document.getElementById(chevId);
+  if (body && body.classList.contains('collapsed')) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.remove('collapsed');
+    if (chev) chev.classList.remove('closed');
+    setTimeout(function() { body.style.maxHeight = 'none'; }, 310);
+  }
+  setTimeout(function() {
+    var el = document.getElementById(secId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
+}
+function jumpAndOpenM(mid, chevId, anchorId) {
+  var body = document.getElementById('msec-' + mid);
+  var chev = document.getElementById(chevId);
+  if (body && body.classList.contains('collapsed')) {
+    body.style.maxHeight = body.scrollHeight + 'px';
+    body.classList.remove('collapsed');
+    if (chev) chev.classList.remove('closed');
+    setTimeout(function() { body.style.maxHeight = 'none'; }, 310);
+  }
+  setTimeout(function() {
+    var el = document.getElementById(anchorId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 50);
 }
 </script>
 </body>
